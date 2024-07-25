@@ -100,16 +100,22 @@ if( function_exists('get_field') ):
         </section>
     <?php endif; ?>
 
+    <?php
+    $testimonials_bg_img = get_field('testimonial_bg_img'); // Get the background image field
+    ?>
+
     <?php if( have_rows('testimonials') ): ?>
-        <section class="container-fw" style="background-color: #bada55;">
+        <section class="container-fw testimonials-section" style="background-image: url('<?php echo esc_url($testimonials_bg_img); ?>');">
             <div class="container">
                 <div class="row">
                     <?php while( have_rows('testimonials') ): the_row(); ?>
-                        <div class="col-sm-12 col-md-4 text-center">
-                            <?php 
-                                $profile_image = get_sub_field('profile_image');
-                                echo wp_get_attachment_image($profile_image, 'thumbnail'); 
-                            ?>
+                        <div class="col-sm-12 col-md-4 text-center single-testi">
+                            <div class="profile-pic">
+                                <?php 
+                                    $profile_image = get_sub_field('profile_image');
+                                    echo wp_get_attachment_image($profile_image, 'thumbnail'); 
+                                ?>
+                            </div>
                             <blockquote>
                                 <p><?php the_sub_field('content'); ?></p>
                                 <footer><?php the_sub_field('name'); ?></footer>

@@ -1,93 +1,135 @@
-.hybrid-hero {
-    background-size: cover;
-    background-position: center;
-    padding: 50px 0;
-
-    .content {
-        background-color: rgba(255, 255, 255, 0.9);
-        padding: 30px;
-        text-align: center;
-
+.page-template-page-hybrid-maketing-page {
+    .hybrid-hero {
+        background-size: cover;
+        background-position: center;
+        padding: 50px 0;
+    
+        .content {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            text-align: center;
+    
+            @media (max-width: 767px) {
+                padding: 15px;
+            }
+        }
+    
+        h1 {
+            color: $black !important;
+        }
+    
+        h2 {
+            color: $black !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 1rem !important;
+            line-height: 1.6 !important;
+        }
+    }
+    
+    section.container,
+    section.container-fw {
         @media (max-width: 767px) {
             padding: 15px;
         }
     }
-
-    h1 {
-        color: $black !important;
-    }
-
+    
     h2 {
-        color: $black !important;
         font-family: 'Montserrat', sans-serif !important;
-        font-size: 1rem !important;
-        line-height: 1.6 !important;
+        font-weight: 700 !important;
     }
-}
-
-section.container,
-section.container-fw {
-    @media (max-width: 767px) {
-        padding: 15px;
-    }
-}
-
-h2 {
-    font-family: 'Montserrat', sans-serif !important;
-    font-weight: 700 !important;
-}
-
-.listicle {
-    border-bottom: 1px solid #000;
-    margin-bottom: 20px;
-    padding: 10px 0;
-
-    .urban-acf {
-        margin: 10px auto;
-    }
-}
-
-.listicle-img {
-    position: relative;
-}
-
-.listicle-number {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: rgba(0, 0, 0, 0.75);
-    color: $white;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.6em;
-}
-
-.image-text {
-
-    .row {
-        align-items: center;
-    }
-
-    .content {
-        padding-left: 15px;
-
-        @media (max-width: 767px) {
-            padding-left: 0;
+    
+    .listicle {
+        border-bottom: 1px solid #000;
+        margin-bottom: 20px;
+        padding: 10px 0;
+    
+        .urban-acf {
+            margin: 10px auto;
         }
     }
-}
+    
+    .listicle-img {
+        position: relative;
+    }
+    
+    .listicle-number {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: rgba(0, 0, 0, 0.75);
+        color: $white;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6em;
+    }
+    
+    .image-text {
+    
+        .row {
+            align-items: center;
+        }
+    
+        .content {
+            padding-left: 15px;
+    
+            @media (max-width: 767px) {
+                padding-left: 0;
+            }
+        }
+    }
+    
+    .testimonials-section {
+        background-size: cover;
+        background-position: center;
+        padding: 50px 0;
 
-.testimonials blockquote {
-    border: none;
-    padding: 0;
-    margin: 20px 0;
-}
+        .col-md-4 {
+            margin: 0 1.5%;
+            max-width: 30%;
+            width: 30%;
 
-.testimonials footer {
-    font-weight: bold;
-    margin-top: 10px;
+            @media (max-width: 767px) {
+                margin: 10px auto;
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+
+        .single-testi {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: space-around;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+
+            .profile-pic {
+                height: 90px;
+                width: 90px;
+                
+                img {
+                    border-radius: 50%;
+                }
+            }
+
+            blockquote {
+                border: none;
+                padding: 0;
+                margin: 20px 0;
+                font-style: italic;
+                text-align: left;
+            }
+
+            footer {
+                font-weight: bold;
+                margin-top: 10px;
+            }
+        }
+    }
 }

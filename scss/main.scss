@@ -1,0 +1,36 @@
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rock+Salt&display=swap');
+
+// Variables
+$black: #000;
+$white: #ffffff;
+$primary: #036EE3; // Blue
+$secondary: #dd0000; // Red
+$dark-gray: #363636;
+$light-gray: #f4f4f4;
+$dark-red: #6f0003;
+
+$footer-top-color: $white;
+$footer-bottom-color: $white;
+
+// Fonts
+$heading: 'Bebas Neue', sans-serif;
+$heading-special: 'Rock Salt', cursive;
+$sub-heading: 'Montserrat', sans-serif;
+$body: 'Montserrat', sans-serif;
+
+// Base Styles
+@import 'base/reset';
+@import 'base/common';
+@import 'base/grid';
+@import 'base/helpers';
+@import 'base/responsive-fonts';
+
+@import 'base/header';
+@import 'base/footer';
+@import 'base/cta';
+@import 'base/home-page';
+@import 'base/hero-title';
+@import 'base/archive.scss';
+@import 'base/sidebar.scss';
+@import 'base/hybrid.scss';

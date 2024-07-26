@@ -127,6 +127,40 @@ if( function_exists('get_field') ):
         </section>
     <?php endif; ?>
 <?php endif; ?>
+<?php
+// Ensure ACF is active
+if( function_exists('have_rows') && have_rows('mobile_buttons') ):
+
+while( have_rows('mobile_buttons') ): the_row();
+
+$button_one_text = get_sub_field('button_one_text');
+$button_one_url = get_sub_field('button_one_url');
+$button_one_icon = get_sub_field('button_one_icon');
+$button_one_bg_color = get_sub_field('button_one_bg_color');
+$button_one_text_color = get_sub_field('button_one_text_color');
+
+$button_two_text = get_sub_field('button_two_text');
+$button_two_url = get_sub_field('button_two_url');
+$button_two_icon = get_sub_field('button_two_icon');
+$button_two_bg_color = get_sub_field('button_two_bg_color');
+$button_two_text_color = get_sub_field('button_two_text_color');
+
+?>
+
+<div class="mobile-buttons">
+    <a href="<?php echo esc_url($button_one_url); ?>" class="mobile-button" style="background-color: <?php echo esc_attr($button_one_bg_color); ?>; color: <?php echo esc_attr($button_one_text_color); ?>;">
+        <?php echo esc_html($button_one_text); ?><i class="fas <?php echo esc_attr($button_one_icon); ?>" aria-hidden="true"></i>
+    </a>
+    <?php if ($button_two_text && $button_two_url): ?>
+        <a href="<?php echo esc_url($button_two_url); ?>" class="mobile-button" style="background-color: <?php echo esc_attr($button_two_bg_color); ?>; color: <?php echo esc_attr($button_two_text_color); ?>;">
+            <?php echo esc_html($button_two_text); ?><i class="fas <?php echo esc_attr($button_two_icon); ?>" aria-hidden="true"></i>
+        </a>
+    <?php endif; ?>
+</div>
+
+<?php endwhile; endif; ?>
+
+
 
 <?php
 get_footer();

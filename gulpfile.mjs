@@ -17,30 +17,35 @@ const browserSyncInstance = browserSync.create();
 
 function compileSass() {
     return src('scss/**/*.scss')
+        .pipe(changed('css'))
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({ overrideBrowserslist: ['last 2 versions'] }))
         .pipe(dest('css'))
-        .pipe(browserSyncInstance.stream())
         .pipe(cleanCSS({ compatibility: 'ie8' }))
         .pipe(rename({ suffix: '.min' }))
-        .pipe(dest('dist/css'));
+        .pipe(dest('dist/css'))
+        .pipe(browserSyncInstance.stream()); // Ensure stream comes after minification
 }
 
 function minifyJs() {
     return src('js/**/*.js')
-        .pipe(changed('dist/js'))
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
         .pipe(dest('dist/js'))
-        .pipe(browserSyncInstance.stream());
+        .pipe(browserSyncInstance.stream()); // Add stream to JS task
 }
 
 function serve() {
     browserSyncInstance.init({ proxy: "ssk2024.local" });
 
+    // Watch SCSS files for changes, compile and minify them
     watch('scss/**/*.scss', compileSass);
+
+    // Watch JS files for changes and minify them
     watch('js/**/*.js', minifyJs);
-    watch(['*.php', 'js/**/*.js']).on('change', browserSyncInstance.reload);
+
+    // Reload the browser when PHP files change
+    watch('*.php').on('change', browserSyncInstance.reload);
 }
 
 function optimizeImages() {

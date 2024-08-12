@@ -24,6 +24,9 @@ function urban_elementor_theme_setup() {
     // Add theme support for Post Thumbnails
     add_theme_support( 'post-thumbnails' );
 
+    add_theme_support('menus');
+
+
     // Register Navigation Menu
     register_nav_menus( array(
         'primary' => esc_html__( 'Primary Menu', 'urban-elementor' ),
@@ -199,3 +202,18 @@ function ccs_enqueue_scripts_and_styles() {
 add_action( 'wp_enqueue_scripts', 'ccs_enqueue_scripts_and_styles' );
 
 add_filter('acf/settings/remove_wp_meta_box', '__return_false');
+
+
+if( function_exists('acf_add_options_sub_page') ) {
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Content Options',
+        'menu_title'    => 'Content Options',
+        'parent_slug'   => 'edit.php?post_type=ssk_landing_pages', // Change this to your CPT slug
+    ));
+}
+
+// Shortcode for Landing Pages
+function location_name_shortcode() {
+    return get_field('location_name');
+}
+add_shortcode('location_name', 'location_name_shortcode');

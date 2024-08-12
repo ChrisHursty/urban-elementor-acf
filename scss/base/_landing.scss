@@ -1,0 +1,258 @@
+.single-ssk_landing_pages {
+
+    .row {
+        @media (max-width: 767px) {
+            padding: 15px !important;
+        }
+    }
+
+    h1, h2, h3, h4 {
+        font-family: 'Bebas Neue', sans-serif !important;
+    }
+
+    h2 {
+        font-size: 3rem !important;
+    }
+
+    p {
+        font-family: "Montserrat", sans-serif;
+    }
+
+    .align-left {
+        padding-right: 15px;
+
+        @media (max-width: 767px) {
+            padding-right: 0;
+        }
+    }
+
+    .align-right {
+        padding-left: 15px;
+
+        @media (max-width: 767px) {
+            padding-left: 0;
+        }
+    }
+
+    .hero-bg {
+        background-color: $dark-blue;
+    }
+    
+    .land-hero {
+        padding: 30px 0;
+        
+        .content {
+            align-content: center;
+    
+            h1, h2, h3, h4, p {
+                color: $white;
+            }
+    
+            h1 {
+                font-size: 3.4rem;
+                line-height: 1;
+            }
+    
+            h3 {
+                font-size: 30px;
+                line-height: 1;
+            }
+    
+            h4 {
+                color: #ddd;
+                font-size: 24px;
+                font-style: italic;
+                font-weight: normal;
+                line-height: 1;
+            }
+    
+            .urban-acf {
+                margin-top: 15px;
+
+                @media (max-width: 767px) {
+                    margin: 15px 0;
+                }
+    
+                &:hover {
+                    background-color: $secondary;
+                }
+    
+                span {
+                    font-size: 22px;
+                }
+            }
+        }
+        .image {
+            position: relative;
+            align-content: center;
+    
+            .title-text {
+                position: absolute;
+                left: 2px;
+                top: -32px;
+                font-family: "bebas neue", sans-serif;
+                font-size: 6rem;
+                color: #fff;
+                overflow: hidden;
+
+                @media (max-width: 767px) {
+                    display: none;
+                }
+            }
+        }
+    }
+    
+    .about-section {
+        .content {
+            align-content: center;
+    
+            .urban-acf {
+                background: $secondary;
+                margin-top: 15px;
+
+                @media (max-width: 767px) {
+                    margin: 15px 0;
+                }
+    
+                &:hover {
+                    background-color: $primary;
+                }
+    
+                span {
+                    color: $white;
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+    
+    .cta-section {
+        background-color: #bf242a;
+        padding: 30px 0;
+        
+        .content {
+            align-content: center;
+    
+            h2,
+            p {
+                color: $white;
+            }
+    
+            .urban-acf {
+                background: $primary;
+                margin-top: 15px;
+
+                @media (max-width: 767px) {
+                    margin: 15px 0;
+                }
+    
+                &:hover {
+                    background-color: $white;
+                }
+    
+                span {
+                    color: $white;
+                    font-size: 22px;
+    
+                    &:hover {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    
+        .image {
+            align-content: center;
+        }
+    }
+    
+    .about-ssk-ben {
+        padding: 30px 0;
+    }
+
+    .testimonials {
+        background-color: #eee;
+        padding: 30px 0;
+
+        .single-testi {
+            padding: 0 10px;
+            text-align: left;
+        }
+
+        h2 {
+            color: $secondary;
+            font-family: "Montserrat", sans-serif !important;
+            font-size: 24px !important;
+            font-style: italic !important;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        blockquote {
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            font-style: italic;
+        }
+    }
+    
+    .mobile-buttons {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        z-index: 1000;
+    }
+    
+    .mobile-button {
+        flex: 1;
+        text-align: center;
+        padding: 15px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .mobile-button i {
+        margin-right: 8px;
+    }
+    
+    @media (min-width: 768px) {
+        .mobile-buttons {
+            display: none;
+        }
+    }
+    
+}
+
+.mobile-buttons {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    z-index: 1000;
+}
+
+.mobile-button {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.mobile-button i {
+    margin-left: 10px;
+}
+
+@media (min-width: 768px) {
+    .mobile-buttons {
+        display: none;
+    }
+}
+

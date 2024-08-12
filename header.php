@@ -40,12 +40,11 @@ defined('ABSPATH') || exit;
                     }
                     ?>
                 </div>
-                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Open menu">
                     <span class="hamburger fa fa-bars"></span>
-
                 </button>
                 <nav role="navigation" aria-label="Main menu" id="site-navigation" class="main-navigation">
-                    <button class="menu-close fa fa-times"></button> <!-- Close Button -->
+                    <button class="menu-close fa fa-times" aria-label="Close menu"></button> <!-- Close Button -->
                     <?php
                     wp_nav_menu(array(
                         'theme_location' => 'primary',

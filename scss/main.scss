@@ -5,7 +5,8 @@
 $black: #000;
 $white: #ffffff;
 $primary: #036EE3; // Blue
-$secondary: #dd0000; // Red
+$dark-blue: #0050a7;
+$secondary: #e71e25; // Red
 $dark-gray: #363636;
 $light-gray: #f4f4f4;
 $dark-red: #6f0003;
@@ -34,3 +35,4 @@ $body: 'Montserrat', sans-serif;
 @import 'base/archive.scss';
 @import 'base/sidebar.scss';
 @import 'base/hybrid.scss';
+@import 'base/landing.scss';

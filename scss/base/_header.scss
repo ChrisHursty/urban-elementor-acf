@@ -100,8 +100,6 @@
         }
     }
 
-    
-
     .main-navigation {
         display: flex;
         align-items: center;
@@ -121,20 +119,15 @@
 
         //Button
         .apply-btn {
-            
             padding: 6px 20px 3px;
             transition: background-color 0.5s ease;
 
             a {
-                
                 font-size: 1.4rem;
             }
 
             &:hover {
-                
-
                 a {
-                    
                     text-decoration: none;
                 }
             }
@@ -183,6 +176,7 @@
 
             li {
                 margin: 0 15px;
+                position: relative;
 
                 a {
                     font-size: 1.2rem;
@@ -203,6 +197,42 @@
 
                 @media (max-width: 768px) {
                     margin: 10px 0;
+                }
+
+                // Sub Menu
+                ul {
+                    background-color: $white;
+                    border: 1px solid $primary;
+                    box-shadow: 0px 7px 14px #50303159;
+                    display: none;
+                    position: absolute;
+                    left: 0;
+                    top: 100%;
+                    width: 220px;
+                    z-index: 9999;
+
+                    @media (max-width: 768px) {
+                        border: transparent;
+                        background-color: transparent;
+                        position: static;
+                        width: auto;
+                        max-height: 40vh; // Set a maximum height to 70% of the viewport height
+                        overflow-y: auto; // Allow vertical scrolling
+                    }
+
+                    li {
+                        border-top: 1px solid $primary;
+
+                        @media (max-width: 768px) {
+                            border-top: 1px solid $white;
+                            margin: 0;
+                            padding: 0;
+                        }
+                    }
+
+                    li:first-of-type {
+                        border-top: transparent;
+                    }
                 }
             }
 

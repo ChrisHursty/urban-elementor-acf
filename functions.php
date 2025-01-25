@@ -210,7 +210,7 @@ if( function_exists('acf_add_options_sub_page') ) {
     acf_add_options_sub_page(array(
         'page_title'    => 'Content Options',
         'menu_title'    => 'Content Options',
-        'parent_slug'   => 'edit.php?post_type=ssk_landing_pages', // Change this to your CPT slug
+        'parent_slug'   => 'edit.php?post_type=uwpe_landing_pages', // Change this to your CPT slug
     ));
 }
 
@@ -219,3 +219,12 @@ function location_name_shortcode() {
     return get_field('location_name');
 }
 add_shortcode('location_name', 'location_name_shortcode');
+
+function remove_p_tags_around_images($content) {
+    // Use a regular expression to match <p> tags wrapping <img> tags
+    $content = preg_replace('/<p>\s*(<img[^>]+>)\s*<\/p>/iU', '$1', $content);
+
+    return $content;
+}
+add_filter('the_content', 'remove_p_tags_around_images');
+add_filter('acf_the_content', 'remove_p_tags_around_images'); // For ACF WYSIWYG fields if used

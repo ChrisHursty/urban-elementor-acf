@@ -12,13 +12,14 @@
     }
     
     .cta-heading {
+        font-family: $heading-special;
         margin-bottom: 15px;
         text-align: center;
     }
 
     .cta-text {
-        background-color: #1e1e1e9e;
-        font-size: 1.1em;
+        background-color: #3B0027;
+        font-size: .9rem;
         line-height: 1.6;
         margin-bottom: 30px;
         padding: 30px;
@@ -28,9 +29,9 @@
     .cta-button {
         display: inline-block;
         padding: 10px 20px;
-        font-weight: 700;
-        font-size: 1.8rem;
-        font-family: $heading;
+        font-weight: 400;
+        font-size: 1.1rem;
+        font-family: $heading-special;
         text-decoration: none;
         text-transform: uppercase;
         transition: background-color 0.5s ease;

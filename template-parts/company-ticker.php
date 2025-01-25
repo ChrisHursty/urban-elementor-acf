@@ -1,6 +1,8 @@
 <div class="container">
     <div class="row">
-        <h2 class="align-center">Sponsors</h2>
+        <?php if ($title = get_field('image_slider_title', 'option')) : ?>
+            <h2 class="align-center"><?php echo esc_html($title); ?></h2>
+        <?php endif; ?>
     </div>
 </div>
 
@@ -11,7 +13,6 @@ $args = array(
 ); ?>
 <div class="container">
     <div class="row">
-
 <?php
 $companies = new WP_Query($args); ?>
     <div class="owl-carousel owl-theme logo-carousel">

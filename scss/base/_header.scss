@@ -19,7 +19,7 @@
   
 .site-header {
     background-color: $white;
-    border-bottom: 2px solid $secondary;
+    border-bottom: 2px solid $primary;
     font-family: $heading;
     font-family: var(--e-global-typography-primary-font-family, Arial, sans-serif);
     font-weight: var(--e-global-typography-primary-font-weight, 400);
@@ -159,7 +159,7 @@
             right: -100%;
             height: 100vh;
             width: 100%;
-            background: #032f6fde;
+            background: #5f0041de;
             transition: right 0.3s ease;
 
             &.toggled {
@@ -216,8 +216,8 @@
                         background-color: transparent;
                         position: static;
                         width: auto;
-                        max-height: 40vh; // Set a maximum height to 70% of the viewport height
-                        overflow-y: auto; // Allow vertical scrolling
+                        max-height: 40vh; 
+                        overflow-y: auto;
                     }
 
                     li {
@@ -245,28 +245,25 @@
         }
 
         .menu-close {
-            display: none; // Initially hidden
+            display: none;
             position: absolute;
             top: 32px;
             right: 20px;
-            color: $white; // Adjust as needed
-            font-size: 24px; // Adjust as needed
+            color: $white;
+            font-size: 24px;
 
             &:hover {
                 cursor: pointer;
             }
     
             @media (max-width: 768px) {
-                display: block; // Show only in mobile view
+                display: block;
             }
-    
-            // More styles as needed...
         }
     
         &.toggled {
-            // Styles when menu is toggled
             .menu-close {
-                display: block; // Ensure it's visible when menu is open
+                display: block;
             }
         }
 

@@ -56,18 +56,20 @@ figure {
 
 // Buttons
 .urban-acf {
-    background-color: $white;
+    background-color: $primary;
+    border-radius: 50px;
     display: inline-block;
     font-family: $heading;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 10px 20px;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 900;
+    padding: 10px 25px;
     text-decoration: none;
     text-transform: uppercase;
     transition: background-color 0.5s ease;
 
     span {
-        color: $primary;
+        color: $off-white;
         display: block;
         height: 100%;
         width: 100%;
@@ -75,12 +77,20 @@ figure {
     }
 
     &:hover {
-        background-color: $primary;
+        background-color: $dark-blue;
         color: $white;
 
         span, a {
-            color: $white;
+            color: $off-white;
         }
+    }
+}
+
+.light-btn {
+    background-color: $off-white;
+
+    span {
+        color: $primary;
     }
 }
 

@@ -11,6 +11,7 @@ footer {
         margin: 10px auto;
 
         a {
+            color: $off-white;
             text-decoration: underline;
 
             &:hover {
@@ -39,6 +40,10 @@ footer {
 
             i {
                 font-size: 1.2em;
+            }
+
+            img {
+                max-width: 16px;
             }
 
             &:hover {

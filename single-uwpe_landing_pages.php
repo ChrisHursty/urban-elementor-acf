@@ -10,38 +10,29 @@
 defined('ABSPATH') || exit;
 get_header();
 
-?>
-<?php
-$post_id = get_the_ID();
-$featured_image_url = get_the_post_thumbnail_url($post_id, 'full');
-
-// Get the default hero image from the options page using ACF Pro
-$acf_default_hero_image_url = get_field('default_hero_image', 'option');
-
 // Define a hard-coded default image URL
-$default_image_url = get_template_directory_uri() . '/dist/images/default-hero-img.webp';
-
-// Determine the background image URL
-if ($featured_image_url) {
-    $background_image_url = $featured_image_url;
-} elseif ($acf_default_hero_image_url) {
-    $background_image_url = $acf_default_hero_image_url;
-} else {
-    $background_image_url = $default_image_url;
-}
+$bg_image_url = get_template_directory_uri() . '/dist/images/dark-bg.webp';
 ?>
-
-<section class="container-fw hero-bg">
+<section class="container-fw" style="background-image: url('<?php echo esc_url($bg_image_url); ?>');">
     <div class="container">
         <div class="row land-hero">
             <div class="col-sm-12 col-md-6 content">
-                <h1>Join Our Soccer Training at <?php the_field('location_name'); ?></h1>
+                <h1>Professional Web Design and Hosting, <?php the_field('location_name'); ?></h1>
                 <p><?php the_field('additional_details'); ?></p>
-                <a href="<?php the_field('sign_up_url'); ?>" target="_blank" class="urban-acf"><span>REGISTER FOR <?php the_field('location_name'); ?></span></a>
+                <a href="<?php the_field('sign_up_url'); ?>" target="_blank" class="urban-acf"><span>Book My Discovery Call</span></a>
             </div>
             <div class="col-sm-12 col-md-6 image">
-                <div class="title-text"><?php the_title();?></div>
-                <img src="<?php echo $background_image_url; ?>" alt="Soccer SideKicks Photo of Kids">
+            <?php
+            // Get the featured image ID
+            $featured_image_id = get_post_thumbnail_id();
+            $alt_text = get_post_meta($featured_image_id, '_wp_attachment_image_alt', true);
+
+            // Get the featured image URL
+            $featured_image_url = get_the_post_thumbnail_url();
+
+            if ($featured_image_url): ?>
+                <img src="<?php echo esc_url($featured_image_url); ?>" alt="<?php echo esc_attr($alt_text ? $alt_text : 'Default Alt Text'); ?>">
+            <?php endif; ?>
             </div>
         </div>
     </div>
@@ -51,7 +42,16 @@ if ($featured_image_url) {
 <section class="container about-section">
     <div class="row">
         <div class="col-sm-12 col-md-6 align-left image">
-            <img src="<?php echo esc_url(get_field('about_section_image', 'option')); ?>" alt="Soccer Player Cartoon">
+            <?php
+                $image_id = get_field('about_section_image', 'option');
+                if ($image_id) {
+                    $image_url = wp_get_attachment_image_url($image_id, 'full'); // Get the image URL
+                    $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true); // Get the alt text
+                    ?>
+                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($image_alt); ?>">
+                    <?php
+                }
+                ?>
         </div>
         <div class="col-sm-12 col-md-6 align-right content">
             <?php echo apply_filters('the_content', get_field('about_section_text', 'option')); ?>
@@ -61,33 +61,55 @@ if ($featured_image_url) {
 </section>
 
 <!-- CTA Section with Map -->
-<section class="container-fw cta-section">
+<section class="container-fw cta-section dark-bg">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-6 align-left content">
                 <h2><?php echo esc_html(get_field('cta_headline', 'option')); ?></h2>
-                <p><?php echo esc_html(get_field('cta_description', 'option')); ?></p>
-                <a href="/locations" class="urban-acf">
-                    <span>SEE ALL LOCATIONS</span>
+                <p><?php echo apply_filters('the_content', get_field('cta_description', 'option')); ?></p>
+                <a href="<?php the_field('cta_button_url', 'option'); ?>" class="urban-acf light-btn" target="_blank">
+                    <span><?php the_field('cta_button_text', 'option'); ?></span>
                     
                 </a>
             </div>
             <div class="col-sm-12 col-md-6 align-right image">
-                <img src="<?php echo esc_url(get_field('cta_map_image', 'option')); ?>" alt="Map of Soccer Sidekicks locations">
+                <?php
+                $image_id = get_field('cta_image', 'option');
+                if ($image_id) {
+                    $image_url = wp_get_attachment_image_url($image_id, 'full'); // Get the image URL
+                    $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true); // Get the alt text
+                    ?>
+                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($image_alt); ?>">
+                    <?php
+                }
+                ?>
+
             </div>
         </div>
     </div>
     
 </section>
 
-<!-- About SSK and Ben Section -->
-<section class="container about-ssk-ben">
-    <div class="row">
-        <div class="col-sm-12 col-md-4 align-left image">
-            <img src="<?php echo esc_url(get_field('ssk_and_ben_image', 'option')); ?>" alt="SSK and Ben">
-        </div>
-        <div class="col-sm-12 col-md-8 align-right content">
-            <?php echo apply_filters('the_content', get_field('ssk_and_ben_text', 'option')); ?>
+<!-- Image, Headline & Test -->
+<section class="container-fw about-company light-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 align-left image">
+                <?php
+                    $image_id = get_field('about_company_image', 'option');
+                    if ($image_id) {
+                        $image_url = wp_get_attachment_image_url($image_id, 'full'); // Get the image URL
+                        $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true); // Get the alt text
+                        ?>
+                        <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($image_alt); ?>">
+                        <?php
+                    }
+                    ?>
+            </div>
+            <div class="col-sm-12 col-md-6 align-right content">
+                <?php echo apply_filters('the_content', get_field('about_company_text', 'option')); ?>
+                <a href="<?php the_field('sign_up_url'); ?>" target="_blank" class="urban-acf"><span>Sign Up Now</span></a>
+            </div>
         </div>
     </div>
 </section>
@@ -95,6 +117,9 @@ if ($featured_image_url) {
 <!-- Testimonials Section -->
 <?php if (have_rows('testimonials', 'option')): ?>
     <div class="container-fw testimonials">
+        <div class="container align-center text-center">
+            <h2 class="section-heading">Testimonials</h2>
+        </div>
         <div class="container">
             <div class="row">
             <?php while (have_rows('testimonials', 'option')): the_row(); ?>

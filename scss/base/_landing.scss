@@ -1,4 +1,29 @@
-.single-ssk_landing_pages {
+.single-uwpe_landing_pages {
+    .dark-bg {
+        background-color: $dark-red;
+        color: $off-white;
+
+        h2, h3, h4, h5, h6 span, p, ul, li {
+            color: $off-white;
+        }
+    }
+
+    .light-bg {
+        background-color: $white;
+        color: $primary;
+
+        h2, h3, h4, h5, h6 {
+            color: $primary;
+        }
+
+        p, ul, li {
+            color: $black
+        }
+    }
+
+    ul ::marker {
+        color: $secondary;
+    }
 
     .row {
         @media (max-width: 767px) {
@@ -6,15 +31,28 @@
         }
     }
 
-    h1, h2, h3, h4 {
-        font-family: 'Bebas Neue', sans-serif !important;
+    h1 {
+        color: $off-white !important;
+        font-size: 2.8rem !important;
+        font-style: italic;
+        font-weight: 900;
+        text-transform: uppercase;
     }
 
     h2 {
-        font-size: 3rem !important;
+        font-size: 2.4rem !important;
+        font-style: italic;
+        font-weight: 900;
+        line-height: 1;
+        text-transform: uppercase;
+
+        @media (max-width: 767px) {
+            font-size: 1.6rem !important;
+        }
     }
 
     p {
+        color: $off-white;
         font-family: "Montserrat", sans-serif;
     }
 
@@ -39,14 +77,10 @@
     }
     
     .land-hero {
-        padding: 30px 0;
+        padding: 60px 0;
         
         .content {
             align-content: center;
-    
-            h1, h2, h3, h4, p {
-                color: $white;
-            }
     
             h1 {
                 font-size: 3.4rem;
@@ -65,23 +99,8 @@
                 font-weight: normal;
                 line-height: 1;
             }
-    
-            .urban-acf {
-                margin-top: 15px;
-
-                @media (max-width: 767px) {
-                    margin: 15px 0;
-                }
-    
-                &:hover {
-                    background-color: $secondary;
-                }
-    
-                span {
-                    font-size: 22px;
-                }
-            }
         }
+
         .image {
             position: relative;
             align-content: center;
@@ -90,8 +109,8 @@
                 position: absolute;
                 left: 2px;
                 top: -32px;
-                font-family: "bebas neue", sans-serif;
-                font-size: 6rem;
+                font-family: "Permanent Marker", serif;
+                font-size: 3.5rem;
                 color: #fff;
                 overflow: hidden;
 
@@ -103,60 +122,47 @@
     }
     
     .about-section {
+        padding: 60px 0;
+
         .content {
             align-content: center;
+
+            h2 {
+                color: $primary;
+            }
+
+            p {
+                color: $dark-gray;
+            }
     
             .urban-acf {
-                background: $secondary;
+                margin-bottom: 30px;
                 margin-top: 15px;
 
                 @media (max-width: 767px) {
                     margin: 15px 0;
-                }
-    
-                &:hover {
-                    background-color: $primary;
-                }
-    
-                span {
-                    color: $white;
-                    font-size: 22px;
                 }
             }
         }
     }
     
     .cta-section {
-        background-color: #bf242a;
-        padding: 30px 0;
+        padding: 60px 0;
         
         .content {
             align-content: center;
     
             h2,
             p {
-                color: $white;
+                color: $off-white;
             }
     
             .urban-acf {
-                background: $primary;
+                margin-bottom: 30px;
                 margin-top: 15px;
 
                 @media (max-width: 767px) {
                     margin: 15px 0;
-                }
-    
-                &:hover {
-                    background-color: $white;
-                }
-    
-                span {
-                    color: $white;
-                    font-size: 22px;
-    
-                    &:hover {
-                        color: $primary;
-                    }
                 }
             }
         }
@@ -166,21 +172,34 @@
         }
     }
     
-    .about-ssk-ben {
-        padding: 30px 0;
+    .about-company {
+        padding: 60px 0;
     }
 
     .testimonials {
-        background-color: #eee;
-        padding: 30px 0;
+        background-color: $secondary;
+        color: $off-white;
+        padding: 60px 0;
 
         .single-testi {
             padding: 0 10px;
             text-align: left;
         }
 
+        h2.section-heading {
+            color: $off-white;
+            font-family: "Montserrat", sans-serif !important;
+            font-size: 2.4rem !important;
+            font-style: italic !important;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         h2 {
-            color: $secondary;
+            color: $off-white;
             font-family: "Montserrat", sans-serif !important;
             font-size: 24px !important;
             font-style: italic !important;
@@ -194,6 +213,8 @@
         }
 
         h4 {
+            color: $off-white;
+            font-family: "Permanent Marker", serif;
             font-style: italic;
         }
     }
